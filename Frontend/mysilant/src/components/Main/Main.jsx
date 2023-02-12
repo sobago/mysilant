@@ -21,7 +21,7 @@ export default function Main(props) {
   const [loading, setLoading] = useState(false)
   const [fetchError, setFetchError] = useState('')
   const [machines, setMachines] = useState([])
-  
+
   useEffect(() => {
     setLoading(true);
     fetch(
@@ -130,7 +130,8 @@ export default function Main(props) {
             updateList={updateList}
             setFetchError={setFetchError}
             fetchError={fetchError}
-            machines={machines}/>
+            machines={machines}
+            setMachines={setMachines}/>
           </Suspense>
         : null}
         {page === 'tos' ?  

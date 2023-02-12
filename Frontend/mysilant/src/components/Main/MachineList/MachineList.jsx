@@ -1,6 +1,7 @@
 import styles from './MachineList.module.scss'
 import React, { useState, Suspense } from 'react'
 import MachineFilter from './MachineFilter/MachineFilter'
+import { sortData } from '../../../helpers';
 
 const MachineDetail = React.lazy(() => import('./MachineDetail/MachineDetail'));
 
@@ -12,12 +13,21 @@ function getCookie(name) {
 }
 
 export default function MachineList(props) {
-  const [machinePage, setMachinePage] = useState('machine_list')
-  const [machineDetail, setMachineDetail] = useState({})
-  const {directory, userGroup, users, setFilters, setUpdateList, loading, fetchError, setFetchError, updateList, machines} = props
-  const csrftoken = getCookie('csrftoken')
-  
-
+  const [machinePage, setMachinePage] = useState('machine_list');
+  const [machineDetail, setMachineDetail] = useState({});
+  const {directory, 
+        userGroup, 
+        users, 
+        setFilters, 
+        setUpdateList, 
+        loading, 
+        fetchError, 
+        setFetchError, 
+        updateList, 
+        machines,
+        setMachines} = props;
+  const csrftoken = getCookie('csrftoken');
+  const [sortDirection, setSortDirection] = useState('increase')
   const machineDetailHandler = (e, machine) => {
     e.preventDefault();
     setMachineDetail(machine);
@@ -55,6 +65,18 @@ export default function MachineList(props) {
     
   }
 
+  const [objectDirection]= useState({})
+  const sortingTable = (field) => {
+
+    if (objectDirection.hasOwnProperty(field)) {
+      objectDirection[field] = !objectDirection[field];
+      sortData(field, machines, setMachines, directory, objectDirection[field] === true ? "increase" : "decrease")
+    } else {
+      objectDirection[field] = true;
+      sortData(field, machines, setMachines, directory, objectDirection[field] === true ? "increase" : "decrease")
+    }
+  }
+
   return (
   <>
   {machinePage === 'machine_list' ?
@@ -69,17 +91,17 @@ export default function MachineList(props) {
       <table className={styles.table_machines}>
           <thead>
           <tr>
-              <th>Модель</th>
-              <th>Зав. № машины</th>
-              <th>Модель двигателя</th>
-              <th>Зав. № двигателя</th>
-              <th>Модель трансмиссии</th>
-              <th>Зав. № трансмиссии</th>
-              <th>Модель управляемого моста</th>
-              <th>Зав. № управляемого моста</th>
-              <th>Модель ведущего моста</th>
-              <th>Зав. № ведущего моста</th>
-              <th>Дата отгрузки c завода</th>
+              <th onClick={() => sortingTable('machine_model')}>Модель</th>
+              <th onClick={() => sortingTable('machine_number')}>Зав. № машины</th>
+              <th onClick={() => sortingTable('engine_model')}>Модель двигателя</th>
+              <th onClick={() => sortingTable('engine_number')}>Зав. № двигателя</th>
+              <th onClick={() => sortingTable('transmission_model')}>Модель трансмиссии</th>
+              <th onClick={() => sortingTable('transmission_number')}>Зав. № трансмиссии</th>
+              <th onClick={() => sortingTable('steer_axle_model*	')}>Модель управляемого моста</th>
+              <th onClick={() => sortingTable('steer_axle_number')}>Зав. № управляемого моста</th>
+              <th onClick={() => sortingTable('drive_axle_model')}>Модель ведущего моста</th>
+              <th onClick={() => sortingTable('drive_axle_number')}>Зав. № ведущего моста</th>
+              <th onClick={() => sortingTable('machine_number')}>Дата отгрузки c завода</th>
               <th>Покупатель</th>
               <th>Грузополучатель</th>
               <th>Адрес поставки (эксплуатации)</th>

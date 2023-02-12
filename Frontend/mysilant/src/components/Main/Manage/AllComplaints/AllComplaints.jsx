@@ -2,6 +2,7 @@ import styles from './AllComplaints.module.scss';
 import React, { useState, useEffect } from 'react';
 import ComplaintsFilter from './ComplaintsFilter/ComplaintsFilter';
 import ComplaintsDetail from './ComplaintsDetail/ComplaintsDetail';
+import { sortData } from '../../../../helpers';
 
 export default function AllTO(props) {
     const {directory, users, userGroup, machines} = props;
@@ -48,6 +49,18 @@ export default function AllTO(props) {
       setComplaintDetailItem(item);
       setComplaintsPage('complaints_detail');
     };
+
+    const [objectDirection]= useState({})
+    const sortingTable = (field) => {
+
+        if (objectDirection.hasOwnProperty(field)) {
+        objectDirection[field] = !objectDirection[field];
+        sortData(field, complaintsList, setComplaintsList, directory, objectDirection[field] === true ? "increase" : "decrease")
+        } else {
+        objectDirection[field] = true;
+        sortData(field, complaintsList, setComplaintsList, directory, objectDirection[field] === true ? "increase" : "decrease")
+        }
+    }
 
   return (
     <div className={styles.machine_to}>
@@ -97,15 +110,15 @@ export default function AllTO(props) {
         <table className={styles.table_to}>
             <thead>
                 <tr>
-                    <th>Дата отказа</th>
-                    <th>Зав. № машины</th>
-                    <th>Узел отказа</th>
+                    <th onClick={() => sortingTable('date')}>Дата отказа</th>
+                    <th onClick={() => sortingTable('machine_number')}>Зав. № машины</th>
+                    <th onClick={() => sortingTable('unit')}>Узел отказа</th>
                     <th>Описание отказа</th>
-                    <th>Способ восстановления</th>
+                    <th onClick={() => sortingTable('recovery_method')}>Способ восстановления</th>
                     <th>Используемые запасные части</th>
-                    <th>Дата восстановления</th>
-                    <th>Время простоя техники</th>
-                    <th>Наработка, м/час</th>
+                    <th onClick={() => sortingTable('recovery_date')}>Дата восстановления</th>
+                    <th onClick={() => sortingTable('downtime')}>Время простоя техники</th>
+                    <th onClick={() => sortingTable('duration')}>Наработка, м/час</th>
                     <th>Сервисная организация</th>
                 </tr>
             </thead>

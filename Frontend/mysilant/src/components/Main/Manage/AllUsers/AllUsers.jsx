@@ -2,6 +2,7 @@ import styles from './AllUsers.module.scss';
 import React, { useState, useEffect } from 'react';
 import AllUsersDetail from './AllUsersDetail/AllUsersDetail';
 import AllUsersFilter from './AllUsersFilter/AllUsersFilter';
+import { sortData } from '../../../../helpers';
 
 export default function AllUsers(props) {
     const {directory, users, userGroup, machines} = props;
@@ -62,6 +63,18 @@ export default function AllUsers(props) {
       setUsersPage('user_detail');
     };
 
+    const [objectDirection]= useState({})
+    const sortingTable = (field) => {
+
+        if (objectDirection.hasOwnProperty(field)) {
+        objectDirection[field] = !objectDirection[field];
+        sortData(field, userList, setUserList, directory, objectDirection[field] === true ? "increase" : "decrease")
+        } else {
+        objectDirection[field] = true;
+        sortData(field, userList, setUserList, directory, objectDirection[field] === true ? "increase" : "decrease")
+        }
+    }
+
   return (
     <div className={styles.users}>
       {usersPage === 'user_create' ? 
@@ -101,10 +114,10 @@ export default function AllUsers(props) {
         <table className={styles.users_table}>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Имя</th>
-                    <th>Имя пользователя</th>
-                    <th>Группа</th>
+                    <th onClick={() => sortingTable('id')}>ID</th>
+                    <th onClick={() => sortingTable('first_name')}>Имя</th>
+                    <th onClick={() => sortingTable('username')}>Имя пользователя</th>
+                    <th onClick={() => sortingTable('group')}>Группа</th>
                 </tr>
             </thead>
             {loading ? 

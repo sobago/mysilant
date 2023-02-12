@@ -2,6 +2,7 @@ import styles from './AllTO.module.scss';
 import React, { useState, useEffect } from 'react';
 import TOFilter from './TOFilter/TOFilter';
 import TODetail from './TODetail/TODetail';
+import { sortData } from '../../../../helpers';
 
 export default function AllTO(props) {
     const {directory, users, userGroup, machines} = props;
@@ -48,6 +49,18 @@ export default function AllTO(props) {
       setToDetailItem(item);
       setToPage('to_detail');
     };
+
+    const [objectDirection]= useState({})
+    const sortingTable = (field) => {
+
+        if (objectDirection.hasOwnProperty(field)) {
+        objectDirection[field] = !objectDirection[field];
+        sortData(field, toList, setToList, directory, objectDirection[field] === true ? "increase" : "decrease")
+        } else {
+        objectDirection[field] = true;
+        sortData(field, toList, setToList, directory, objectDirection[field] === true ? "increase" : "decrease")
+        }
+    }
 
   return (
     <div className={styles.machine_to}>
@@ -96,12 +109,12 @@ export default function AllTO(props) {
         <table className={styles.table_to}>
             <thead>
                 <tr>
-                    <th>Дата заказ-наряда</th>
-                    <th>№ заказ-наряда</th>
-                    <th>Зав. № машины</th>
-                    <th>Вид ТО</th>
-                    <th>Дата проведения ТО</th>
-                    <th>Наработка, м/час</th>
+                    <th onClick={() => sortingTable('order_date')}>Дата заказ-наряда</th>
+                    <th onClick={() => sortingTable('order')}>№ заказ-наряда</th>
+                    <th onClick={() => sortingTable('machine_number')}>Зав. № машины</th>
+                    <th onClick={() => sortingTable('service_type')}>Вид ТО</th>
+                    <th onClick={() => sortingTable('date')}>Дата проведения ТО</th>
+                    <th onClick={() => sortingTable('duration')}>Наработка, м/час</th>
                     <th>Организация, проводившая ТО</th>
                 </tr>
             </thead>
