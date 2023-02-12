@@ -1,0 +1,38 @@
+@use '../../../../../variables';
+
+.machine_complaints {
+    display: flex;
+    flex-flow: column;
+
+
+    .table_container {
+        overflow: scroll;
+    }
+    .table_complaints {
+        border-collapse: collapse;
+        width: 100%;
+
+        th, td {
+            border: 1px solid rgb(192, 192, 192);
+            margin: 0;
+            padding: 5px;
+
+            @media screen and (max-width: 825px) {
+                padding: 1px;
+                font-size: 0.8rem;
+            };
+        };
+        .active {
+            &:hover {
+                cursor: pointer;
+            };
+        }
+        .error_message {
+            @include variables.error_message;
+        }
+    };
+    .add_btn {
+        max-width: fit-content;
+        margin-bottom: 5px;
+    }
+}

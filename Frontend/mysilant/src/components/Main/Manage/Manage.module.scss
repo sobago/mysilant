@@ -1,0 +1,25 @@
+@use '../../../variables';
+
+.tabs {
+    display: flex;
+    margin-bottom: 5px;
+
+    @media screen and (max-width: 460px) {
+        flex-wrap: wrap;
+        button {
+            margin-bottom: 5px
+        }
+    };
+
+    button {
+        margin-right: 5px;
+    }
+
+    .btn_active {
+        color: variables.$red;
+    }
+
+    a {
+        margin: auto 0;
+    }
+}

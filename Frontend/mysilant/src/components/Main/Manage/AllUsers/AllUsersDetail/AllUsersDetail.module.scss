@@ -1,0 +1,91 @@
+@use '../../../../../variables';
+
+.complaints_detail {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    background-color: variables.$beige;
+
+    h3 {
+        padding: 5px;
+        background-color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    };
+
+    .close_button {
+        height: 24px;
+        width: 24px;
+        margin: 5px 5px 0 0;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+    };
+
+    form {
+        padding: 10px;
+        width: 97%;
+        max-width: 900px;
+        display: flex;
+        flex-flow: column;
+        align-items: baseline;
+        align-self: center;
+        
+        list-style: none;
+
+        li, label {
+            width: 100%;
+            display: flex;
+            margin: 3px;
+            font-size: 1.15rem;
+            align-items: center;
+            
+            input, select {
+                margin: 3px;
+                font-size: 1.15rem;
+                flex-grow: 1;
+            }
+            .textarea {
+                width: 100%;
+                height: 150px
+            }
+        };
+
+        label {
+            text-align: start;
+        }
+
+        .pass_change {
+            margin: 3px;
+            font-size: 0.9rem;
+            font-style: italic;
+            text-decoration: underline;
+            cursor: pointer;
+        };
+
+        .submit {
+            display: flex;
+            align-items: center;
+
+            .status_ok {
+            color: green;
+            margin-left: 5px;
+            }  
+
+            .status_error {
+                @include variables.error_message;
+                margin-left: 5px;
+            }
+
+            button {
+                margin-right: 5px;
+            }
+        }
+        
+        
+    }
+}

@@ -1,0 +1,22 @@
+.directories {
+    display: flex;
+    flex-flow: column;
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        th, td {
+            border: 1px solid rgb(192, 192, 192);
+            margin: 0;
+            padding: 5px;
+        };
+        td {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    };
+    .add_btn {
+        max-width: fit-content;
+        margin-bottom: 5px;
+    }
+}

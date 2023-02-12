@@ -1,0 +1,18 @@
+@use '../../variables';
+
+.header_up {
+    display: flex;
+    margin: 0 auto;
+    padding: 5px;
+    max-height: max-content;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: variables.$beige;
+  }
+
+.header_bottom {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    }

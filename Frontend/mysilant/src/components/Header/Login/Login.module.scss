@@ -1,0 +1,30 @@
+@use '../../../variables';
+
+.login {
+    // max-width: 200px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px 0;
+    flex-wrap: wrap;
+}
+
+.login_form {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+
+    input {
+        margin: 2px;
+        padding: 2px;
+        font-size: 0.8rem;
+    };
+}
+
+
+.error_message {
+    @include variables.error_message;
+    font-size: 0.8rem;
+    margin-left: 5px
+};

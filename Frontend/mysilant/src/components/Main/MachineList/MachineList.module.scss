@@ -1,0 +1,64 @@
+@use '../../../variables';
+
+.tabs {
+    display: flex;
+    button {
+        margin-bottom: 5px;
+        // border: 1px solid rgb(136, 135, 135);
+        // border-bottom: none;
+        // border-top-left-radius: 10px;
+        // border-top-right-radius: 10px;
+    }
+};
+
+.before_table {
+    display: flex;
+    justify-content: flex-start;
+    .counter {
+        display: flex
+    };
+    .error {
+        @include variables.error_message;
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+    }
+}
+
+.table_container {
+    overflow: scroll;
+}
+
+.table_machines {
+    border-collapse: collapse;
+    width: 100%;
+    th, td {
+        border: 1px solid rgb(192, 192, 192);
+        margin: 0;
+        padding: 5px;
+
+        &:hover {
+            cursor: pointer;
+        };
+
+        .delete_button {
+            height: 24px;
+            width: 24px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 825px) {
+            padding: 1px;
+            font-size: 0.8rem;
+        };
+    };
+
+
+    .additional {
+        font-size: 0.7rem;
+        text-align: start;
+    }
+}

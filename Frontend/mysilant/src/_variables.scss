@@ -1,0 +1,7 @@
+$blue: #163E6C;
+$red: #D20A11;
+$beige:#EBE6D6;
+
+@mixin error_message {
+    color: $red;
+}

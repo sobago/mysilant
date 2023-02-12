@@ -1,0 +1,12 @@
+.contacts {
+    display: flex;
+    align-items: center;
+}
+
+.contacts a {
+    padding: 0 5px;
+}
+
+.telegram_logo {
+    max-height: 24px;
+}

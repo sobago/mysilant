@@ -1,0 +1,106 @@
+@use './variables';
+
+@font-face {
+  font-family: "PT-Astra-Sans";
+  font-style: italic;
+  font-weight: bold;
+  src: local("PT-Astra-Sans_Bold-Italic"),
+    url(./fonts/PT-Astra-Sans_Bold-Italic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "PT-Astra-Sans";
+  font-style: normal;
+  font-weight: bold;
+  src: local("PT-Astra-Sans_Bold"),
+    url(./fonts/PT-Astra-Sans_Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "PT-Astra-Sans";
+  font-style: italic;
+  font-weight: normal;
+  src: local("PT-Astra-Sans_Italic"),
+    url(./fonts/PT-Astra-Sans_Italic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "PT-Astra-Sans";
+  font-style: normal;
+  font-weight: normal;
+  src: local("PT-Astra-Sans_Regular"),
+    url(./fonts/PT-Astra-Sans_Regular.woff2) format("woff2");
+}
+
+* {
+  font-family: "PT-Astra-Sans", Arial, Helvetica, sans-serif;
+  color: variables.$blue;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.1s;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+h1 {
+  font-size: 2rem;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.5rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1.2rem;
+  }
+}
+
+h3 {
+  font-size: 1.3rem;
+
+  @media screen and (max-width: 450px) {
+    font-size: 1rem;
+  }
+}
+
+a, p, button {
+  font-size: 1rem;
+
+  @media screen and (max-width: 450px) {
+    font-size: 0.8rem;
+  }
+}
+
+button {
+  font-size: 1rem;
+  padding: 3px;
+
+  @media screen and (max-width: 450px) {
+    font-size: 0.8rem;
+  }
+}
+
+.container {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.main {
+  align-self: stretch;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+}

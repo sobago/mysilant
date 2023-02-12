@@ -1,0 +1,61 @@
+@use '../../../../../variables'; 
+
+.machine_detail {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    background-color: variables.$beige;
+
+    form {
+        padding: 10px;
+        width: 97%;
+        max-width: 900px;
+        display: flex;
+        flex-flow: column;
+        align-items: baseline;
+        align-self: center;
+        
+        list-style: none;
+
+        li, label {
+            width: 100%;
+            display: flex;
+            margin: 3px;
+            font-size: 1.15rem;
+            align-items: center;
+            
+            input, select {
+                margin: 3px;
+                font-size: 1.15rem;
+                flex-grow: 1;
+            }
+            .textarea {
+                width: 100%;
+                height: 150px
+            }
+        };
+
+        label {
+            text-align: start;
+        }
+
+        .submit {
+            display: flex;
+            align-items: center;
+
+            .status_ok {
+            color: green;
+            margin-left: 5px;
+            }  
+
+            .status_error {
+                @include variables.error_message;
+                margin-left: 5px;
+            }
+        }
+        
+        
+    }
+}
