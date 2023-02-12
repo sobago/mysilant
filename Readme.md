@@ -5,9 +5,9 @@
 |Frontend|Папка с сайтом|
  
 Логины для тестирования:
-Админ: admin/pass
-Клиент: ao.zander/ao.zanderao.zander
-Сервисная организация: silant/silantsilant
+- Админ: admin/pass
+- Клиент: ao.zander/ao.zanderao.zander
+ -Сервисная организация: silant/silantsilant
 
 ## Backend
 Используется Django Rest Framework, установленные дополнительные библиотеке в файле requirements.txt
