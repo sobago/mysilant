@@ -140,15 +140,6 @@ CORS_ORIGIN_WHITELIST = (
     "http://127.0.0.1:80",
 )
 
-LOGIN_REDIRECT_URL = "/api/swagger/"
-
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-        
-    ),
-}
-
 CORS_ALLOWED_ORIGINS = CORS_ORIGIN_WHITELIST
 CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
 
@@ -160,3 +151,14 @@ SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_SAMESITE = None
 SESSION_COOKIE_SAMESITE = None
+
+
+LOGIN_REDIRECT_URL = "/api/swagger/"
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        
+    ),
+}
+

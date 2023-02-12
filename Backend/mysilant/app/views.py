@@ -8,10 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import Group
 from .models import *
 from .filters import MachineFilter, TechnicalServiceFilter, ComplaintFilter, UserFilter
-from django.http import HttpResponse, JsonResponse, Http404
-from rest_framework.parsers import JSONParser
-from rest_framework import status, generics, permissions
-from rest_framework.views import APIView
+from rest_framework import status, generics
 
 
 @api_view(['POST'])

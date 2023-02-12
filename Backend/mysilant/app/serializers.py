@@ -1,8 +1,6 @@
 from rest_framework.serializers import ModelSerializer, \
     Serializer, \
     CharField, \
-    PrimaryKeyRelatedField, \
-    DateField, \
     SerializerMethodField, \
     IntegerField
 from django.contrib.auth.models import User

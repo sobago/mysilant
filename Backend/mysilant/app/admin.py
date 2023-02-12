@@ -196,25 +196,6 @@ class ComplaintAdmin(admin.ModelAdmin):
         return super(ComplaintAdmin, self).render_change_form(request, context, *args, **kwargs)
 
 
-# class MyUserAdmin(admin.ModelAdmin):
-
-#     def group(self, user):
-#         groups = []
-#         for group in user.groups.all():
-#             groups.append(group.name)
-#         return ', '.join(groups)
-#     group.short_description = 'Группы'
-
-#     list_display = ['first_name', 'last_name', 'username', 'is_active', 'is_staff', 'last_login', 'email', 'group']
-#     list_filter = ['is_staff', 'is_active', 'groups']
-#     search_fields = ('first_name', 'last_name', 'username', 'email')
-#     ordering = ('groups', 'username')
-    
-
-# admin.site.unregister(User)
-# admin.site.register(User, MyUserAdmin)
-
-
 admin.site.register(Directory, DirectoryAdmin)
 admin.site.register(Machine, MachineAdmin)
 admin.site.register(TechnicalService, TechnicalServiceAdmin)
