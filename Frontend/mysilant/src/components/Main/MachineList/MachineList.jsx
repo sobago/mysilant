@@ -27,7 +27,7 @@ export default function MachineList(props) {
         machines,
         setMachines} = props;
   const csrftoken = getCookie('csrftoken');
-  const [sortDirection, setSortDirection] = useState('increase')
+  
   const machineDetailHandler = (e, machine) => {
     e.preventDefault();
     setMachineDetail(machine);

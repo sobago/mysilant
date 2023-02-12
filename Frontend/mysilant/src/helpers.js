@@ -5,7 +5,6 @@ export const sortData = (field, items, setItems, directory, direction = 'increas
     const copyData = items.concat()
     const sortData = copyData.sort(
       (a, b) => {
-        console.log(field);
         if (direction === 'increase') {
             if (typeof(a[field]) === 'number' 
             && field !== 'downtime'
